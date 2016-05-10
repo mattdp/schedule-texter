@@ -3,3 +3,10 @@
 [] integrate twilio account
 [] verify can do from command line on demand from my comp
 [] put some slides together for a demo
+
+
+demo
+--
+python
+execfile("main.py")
+morning_text(1)
