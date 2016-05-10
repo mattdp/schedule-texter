@@ -3,7 +3,9 @@
 import time
 import datetime
 import holidays
+import os
 from datetime import date
+from twilio.rest import TwilioRestClient
 
 # omitted a ton of test code - definitely revisit when expand project
 
@@ -100,3 +102,12 @@ def morning_text(date_int):
   output_string += "--------------\n"
   output_string += sched_morning(date_int)
   return output_string
+
+def txt_to_phone(to_number):
+  account_sid = os.environ.get('SB_TWILIO_ACCOUNT_ID')
+  auth_token  = os.environ.get('SB_TWILIO_AUTH_TOKEN')
+  client = TwilioRestClient(account_sid, auth_token)
+  message = client.messages.create(body=morning_text(1),
+    to=to_number,   
+    from_=os.environ.get('SB_TWILIO_PHONE_NUMBER')) 
+  print "Send attempted to " + to_number

@@ -1,12 +1,15 @@
-[] get a schedule out of lamia's code
-[] find a way of running a method on heroku command line
-[] integrate twilio account
-[] verify can do from command line on demand from my comp
+[x] get a schedule out of lamia's code
+[x] find a way of running a method on heroku command line
+[x] integrate twilio account
+[] verify can do from remote command line on demand from my comp
 [] put some slides together for a demo
 
 
 demo
 --
+heroku run bash
+ls
 python
 execfile("main.py")
 morning_text(1)
+txt_to_phone("+14152382438")
